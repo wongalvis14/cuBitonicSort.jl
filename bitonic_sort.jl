@@ -53,6 +53,9 @@ function bitonic_sort(A, dir=true, max=nothing)
 
     threads = 256
     blocks = cld(k, threads)
+    
+    # Intuitive representation of the sorter network graph in https://en.wikipedia.org/wiki/Bitonic_sorter
+    # group = blue/green, box = red/light red, stride = arrow length
 
     while groupsize <= k
         stride = div(groupsize, 2)
